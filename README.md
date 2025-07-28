@@ -56,7 +56,8 @@ tokenizers==0.20.3
 2. CUDA 11.8 用户可直接运行：pip install torch==2.4.0+cu118 torchaudio==2.4.0+cu118 --index-url https://download.pytorch.org/whl/cu118 
 3. 然后再安装其他依赖：pip install -r requirements.txt 
 如无 NVIDIA GPU 或不需 CUDA，可将 `+cu118` 替换为 `+cpu`，或直接安装 CPU 版本：pip install torch==2.4.0 torchaudio==2.4.0
-requirements.txt 说明
+
+### requirements.txt 说明
  `requirements.txt` 不包含 `torch`、`torchaudio` 等 PyTorch 相关包，请根据上方说明手动安装，以确保环境兼容。
 
 
@@ -64,7 +65,8 @@ requirements.txt 说明
 
 1. 运行 pip install git+https://github.com/p11grim/faststt.git
 2. 单独下载start.py文件，或者使用git clone https://github.com/p11grim/faststt.git，拷贝整个项目到本地。
-3. 运行start.py
+3. 在huggingface上https://huggingface.co/Systran/faster-whisper-large-v3下载模型，并将start.py中的'download_root'参数保存的文件夹地址
+4. 运行start.py
 
 也可以创建自己的脚本，以 `start.py` 为例：
 
@@ -75,7 +77,7 @@ from faststt import AudioToTextRecorder
 config = {
     'model': 'large-v3',
     'language': 'zh',
-    'download_root': 'D:\\model',
+    'download_root': 'D:\\model',#这里改成你自己huggingface模型存放地址
     'device': 'cuda',
     'compute_type': 'int8',
     # ... 可选参数参见下方

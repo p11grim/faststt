@@ -23,7 +23,7 @@ import os
 import gc
 
 
-logger = logging.getLogger("realtimestt")
+logger = logging.getLogger("faststt")
 logger.propagate = False
 
 
@@ -42,7 +42,6 @@ INIT_PRE_RECORDING_BUFFER_DURATION = 1.0
 
 
 class ContinuousAudioRecorder:
-    """连续音频录制器 - 使用线程版本"""
     
     def __init__(self, sample_rate=SAMPLE_RATE, buffer_size=BUFFER_SIZE, 
                  input_device_index=None):
@@ -55,7 +54,6 @@ class ContinuousAudioRecorder:
         self.reader_thread = None
         
     def start(self):
-        """开始录音"""
         if self.is_running:
             return
             
@@ -69,7 +67,6 @@ class ContinuousAudioRecorder:
         logger.info("音频录制已开始")
     
     def stop(self):
-        """停止录音"""
         if not self.is_running:
             return
             
@@ -82,7 +79,6 @@ class ContinuousAudioRecorder:
         logger.info("音频录制已停止")
     
     def get_audio_data(self, timeout=0.1):
-        """获取音频数据"""
         try:
             return self.audio_queue.get(timeout=timeout)
         except queue.Empty:
@@ -433,12 +429,12 @@ class AudioToTextRecorder:
         if not logger.handlers:
             console_handler = logging.StreamHandler()
             console_handler.setLevel(level)
-            formatter = logging.Formatter("RealTimeSTT: %(name)s - %(levelname)s - %(message)s")
+            formatter = logging.Formatter("faststt: %(name)s - %(levelname)s - %(message)s")
             console_handler.setFormatter(formatter)
             logger.addHandler(console_handler)
     
     def _init_components(self):
-        logger.info("初始化RealTimeSTT组件...")
+        logger.info("初始化faststt组件...")
         
         self.audio_recorder = ContinuousAudioRecorder(
             sample_rate=SAMPLE_RATE,
@@ -465,7 +461,7 @@ class AudioToTextRecorder:
         
         self.transcription_worker.start()
         
-        logger.info("RealTimeSTT初始化完成")
+        logger.info("faststt初始化完成")
     
     def text(self, on_transcription_finished: Optional[Callable] = None):
         if on_transcription_finished:
@@ -663,14 +659,14 @@ class AudioToTextRecorder:
         if self.is_shut_down:
             return
         
-        logger.info("正在关闭RealTimeSTT...")
+        logger.info("正在关闭faststt...")
         self.is_shut_down = True
         if self.continuous_mode_active:
             self.stop_continuous_mode()
         self.audio_recorder.stop()
         self.transcription_worker.stop()
         
-        logger.info("RealTimeSTT已关闭")
+        logger.info("faststt已关闭")
     
     def __enter__(self):
         return self
