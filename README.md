@@ -29,8 +29,10 @@ faststt/
 └── ...
 ```
 ## python及依赖项版本
+
 Python 3.10.18
 创建新的虚拟环境后，使用pip install -r requirements.txt安装
+
 ### requirements.txt
 PyAudio==0.2.14
 faster-whisper==1.1.1
@@ -44,7 +46,9 @@ openwakeword>=0.4.0
 numpy<2.0.0
 transformers==4.46.1
 tokenizers==0.20.3
+
 ### 安装 PyTorch 及相关依赖  
+
 本项目依赖 PyTorch 2.4.0 + CUDA 11.8（或兼容版本）。 
 请根据你的显卡和 CUDA 版本，安装合适的 PyTorch 包。  
 推荐方法：  
@@ -55,10 +59,15 @@ tokenizers==0.20.3
 requirements.txt 说明
  `requirements.txt` 不包含 `torch`、`torchaudio` 等 PyTorch 相关包，请根据上方说明手动安装，以确保环境兼容。
 
- 
+
 ## 快速开始
 
-以 `start.py` 脚本为例：
+1. 运行 pip install git+https://github.com/p11grim/faststt.git
+2. 单独下载start.py文件，或者使用git clone https://github.com/p11grim/faststt.git，拷贝整个项目到本地。
+3. 运行start.py
+
+也可以创建自己的脚本，以 `start.py` 为例：
+
 
 ```python
 from faststt import AudioToTextRecorder
