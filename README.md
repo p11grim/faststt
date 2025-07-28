@@ -65,7 +65,7 @@ tokenizers==0.20.3
 
 1. 运行 pip install git+https://github.com/p11grim/faststt.git
 2. 单独下载start.py文件，或者使用git clone https://github.com/p11grim/faststt.git，拷贝整个项目到本地。
-3. 在huggingface上https://huggingface.co/Systran/faster-whisper-large-v3下载模型，并将start.py中的'download_root'参数保存的文件夹地址
+3. 在huggingface上https://huggingface.co/Systran/faster-whisper-large-v3下载模型，并将start.py中的'download_root'参数改为保存的文件夹地址
 4. 运行start.py
 
 也可以创建自己的脚本，以 `start.py` 为例：
