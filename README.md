@@ -122,8 +122,11 @@ recorder.text(on_text)
 - 按 `Ctrl+C` 终止程序，程序会自动关闭所有资源，并输出本次会话的转录耗时统计。
 
 ## 测试输出
+
 ### GPU
+
 #### 中文文本
+
 连续转录结果
 [18:05:12] 新华社北京7月25日电7月25日上午国家主席习近平在北京人民大会堂接受16位驻华大使提交国书
 [18:05:24] 人民大会堂北门外,礼兵庄严列队迎兵号讲吹响使节们相继抵达穿过旗阵沿汉白玉台阶拾级而上
@@ -149,15 +152,16 @@ recorder.text(on_text)
 平均转录时间: 1.19秒
 最快转录时间: 0.89秒
 最慢转录时间: 1.84秒
-==================================================
+
 #### 中英混杂
+
 连续转录结果
 [18:13:41] 加码中有哪些数学函数
 [18:13:54] Java中提供了一些数学函数,位于java.long.math类中,这些函数包括以下几种。
 [18:14:10] 基本数学函数ABS, MAX, MIN指数函数EXP, LOG, POE三角函数SINE, COSINE, TENGENT，ARC SINE, 2 COSINE, ARC TENGENT
 [18:14:20] 双取函数sinh，cosh，tanh，arcsinh，arccosh，arctanh
 [18:14:25] 随机数函数random
-==============================
+
 
 =============== 转录时间统计 ===============
 1. [18:13:41] 加码中有哪些数学函数                               - 0.94秒
@@ -171,6 +175,7 @@ recorder.text(on_text)
 最快转录时间: 0.83秒
 最慢转录时间: 1.72秒
 #### 纯英文
+
 连续转录结果
 [18:45:04] Question 2, how does the tension mechanism function in transformer models?
 [18:45:21] The tension mechanism allows LLms to weigh the importance of different tokens in a sequence when reading or interpreting text.
@@ -178,7 +183,7 @@ recorder.text(on_text)
 [18:45:48] For instance, when the cat chases the mouse, attention helps the model link mouse to chest.
 [18:45:53] This mechanism improves context learning
 [18:46:01] making transformers highly effective for NLP tasks.
-==============================
+
 =============== 转录时间统计 ===============
 1. [18:45:04] Question 2, how does the tension mechani... - 1.00秒
 2. [18:45:21] The tension mechanism allows LLR amps to... - 1.19秒
@@ -195,11 +200,12 @@ recorder.text(on_text)
 GPU占用约3G
 
 ### CPU
+
 连续转录结果
 [18:50:35] BIO,NIO,AIO有哪些应用场景?以PIO方式适用于连接数目比较小且呼应的架构,这种方式对服务器资源要求比较高,并发局限于应用中。JDK 1.4以前的唯一选择,但程序简单易理解。
 [18:50:57] NIO方式适用于连接数目多且连接比较短轻操作的架构比如聊天服务器弹幕系统服务间通讯等编程比较复杂GDK1.4开始支持
 [18:51:19] AIO方式使用于连接数目多且连接比较长重操作架构比如相册服务器充分调用OS参与并发操作编程比较复杂JDK7开始支持
-==============================
+
 =============== 转录时间统计 ===============
 1. [18:50:35] BIO,NIO,AIO有哪些应用场景?以PIO方式适用于连接数目比较小且呼应的架... - 24.87秒
 2. [18:50:57] NIO方式适用于连接数目多且连接比较短轻操作的架构比如聊天服务器弹幕系统服务间通... - 21.91秒
